@@ -10,6 +10,9 @@ switch (action.type) {
     case 'ADD':
       a.push(action.payload) 
       return  a
+      case 'FETCH':
+      //  console.log(action.payload)
+       state.push(action.payload)
     default:
         return a;
      
