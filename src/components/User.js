@@ -3,19 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetch_Data } from '../redux/actions/action';
 
 function User() {
-    const fetchData = useSelector((state) => state);
+    const userList = useSelector(state => state.user.users);
+    console.log('userlist',userList);
     const disptach = useDispatch();
 
-    useEffect(() => {
-        disptach(fetch_Data())
-
-    }, [])
-    console.log(fetchData)
-       
-
-    
     return (
         <div>
+            <button onClick={()=>disptach(fetch_Data())}> click to get data</button>
+            
             <h1>User Page</h1>
             <table className="table" align='center' >
                 <thead>
@@ -29,23 +24,21 @@ function User() {
                     </tr>
                 </thead>
                 <tbody>
-                    {fetchData.map((data, ind) => {
-                        return (
-                            <tr>
-                                <td>{data.username}</td>
-                                <td>Sushma</td>
-                                <td>Sushma</td>
-                                <td>sushma@gmail.com</td>
-                                <td>fgshggfhs</td>
+                {userList?.map((val,i)=>{
+                    return(
+                        <tr key={i}>
+                            <td>{val.id}</td>
+                            <td>{val.name}</td>
+                            <td>{val.username}</td>
+                            <td>{val.email}</td>
+                            <td>{val.email}</td>
+                        </tr>
 
-                            </tr>
-                        )
-
-                    })}
-
-
+                    )
+                })}
                 </tbody>
             </table>
+         
         </div>
     )
 }

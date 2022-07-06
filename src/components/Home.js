@@ -3,16 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addData } from '../redux/actions/action';
 
 function Home() {
-  // const [username,setUsername] = useState('');
   const disptach = useDispatch();
+  const data = useSelector((state => state.input.inputData))
+   console.log(data)
 
-
-  const data = useSelector((state => state))
-  console.log(data)
-
-  const handleChange = (event) => {
-    disptach(addData(event.target.value))
-  }
+  // const handleChange = (event) => {
+  //   disptach(addData(event.target.value))
+  // }
 
 
   return (
@@ -21,8 +18,8 @@ function Home() {
         <h1>Home page</h1>
         <div>
           <label for="">Enter your name: </label>
-          <input type="text" name="username" onChange={(event) => { handleChange(event) }} />
-          <p>WELCOME {data}</p>
+          <input type="text" name="username" onChange={(event) => disptach(addData(event.target.value))} />
+          <p>WELCOME:   {data}</p>
         </div>
 
       </div>
