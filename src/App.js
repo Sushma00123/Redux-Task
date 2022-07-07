@@ -4,6 +4,7 @@ import './App.css';
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import User from "./components/User";
+import UserDetails from "./components/UserDetails";
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
      
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/user' element={<User />}></Route>
+        <Route path='/users' element={<User />}></Route>
+        <Route path="/user/details/:id" element={<UserDetails/>}></Route>
 
       </Routes>
 

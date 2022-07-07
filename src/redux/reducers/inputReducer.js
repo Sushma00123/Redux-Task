@@ -1,11 +1,11 @@
 const initialState = {
-  inputData:''
+  inputData:[]
 };
 
 const inputReducer = (state=initialState,action)=>{
   switch (action.type) {
     case 'ADD':
-      return {inputData:action.payload}
+      return {...state,inputData:action.payload}
     default:
      return state
   }
